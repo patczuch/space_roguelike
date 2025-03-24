@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dcitp2mgdiufb"]
+[gd_scene load_steps=4 format=3 uid="uid://dcitp2mgdiufb"]
 
 [ext_resource type="Texture2D" uid="uid://cuttygp14rb56" path="res://assets/textures/background.png" id="1_liqgt"]
 [ext_resource type="PackedScene" uid="uid://cv6ikkqexrupx" path="res://assets/scenes/Player.tscn" id="2_hfcue"]
+[ext_resource type="PackedScene" uid="uid://c3cncy3omtwgr" path="res://assets/scenes/Octopus.tscn" id="3_b2xlt"]
 
 [node name="Room" type="Node2D"]
 
@@ -13,3 +14,15 @@ texture = ExtResource("1_liqgt")
 [node name="Player" parent="." instance=ExtResource("2_hfcue")]
 position = Vector2(634, 392)
 scale = Vector2(2.73504, 2.30769)
+
+[node name="Octopus" parent="." instance=ExtResource("3_b2xlt")]
+position = Vector2(645, 288)
+
+[node name="Octopus2" parent="." instance=ExtResource("3_b2xlt")]
+position = Vector2(409, 449)
+
+[node name="Octopus3" parent="." instance=ExtResource("3_b2xlt")]
+position = Vector2(907, 385)
+
+[node name="Octopus4" parent="." instance=ExtResource("3_b2xlt")]
+position = Vector2(238, 308)

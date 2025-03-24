@@ -1,4 +1,5 @@
 extends Area2D
+class_name BasicBullet
 
 const SPEED: float = 1000.0
 var direction: Vector2 = Vector2(0,0)

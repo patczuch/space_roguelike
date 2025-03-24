@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://c3cncy3omtwgr"]
+
+[ext_resource type="Texture2D" uid="uid://cgfgyxkj1xe43" path="res://assets/textures/octopus.png" id="1_gs7k7"]
+[ext_resource type="Script" uid="uid://c3g1o7cqbvn7b" path="res://assets/scripts/octopus.gd" id="1_q0spj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gs7k7"]
+radius = 31.0
+
+[sub_resource type="GDScript" id="GDScript_q0spj"]
+script/source = "extends Area2D
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a4pwn"]
+radius = 31.0161
+
+[node name="Octopus" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_q0spj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_gs7k7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_gs7k7")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = SubResource("GDScript_q0spj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_a4pwn")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
