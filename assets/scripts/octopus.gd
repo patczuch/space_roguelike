@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+class_name Octopus
 
 const SPEED = 10000.0
 

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://1ud11frbyufv"]
+
+[ext_resource type="Script" uid="uid://ilao8848ljb7" path="res://assets/scripts/room_spawner.gd" id="1_lfodh"]
+
+[node name="RoomSpawner" type="Node2D"]
+script = ExtResource("1_lfodh")
