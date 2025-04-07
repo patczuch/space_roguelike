@@ -8,6 +8,7 @@ var room: Room
 var player: Player
 var floor: Array
 var curr_room: Vector2
+var timer
 
 func _ready():
 	var width = 10
@@ -47,6 +48,7 @@ func _ready():
 				
 
 func move_room(x, y):
+	$Player/CollisionShape2D.disabled = true
 	pause_room(room, true)
 	if x == 1:
 		player.global_position = Vector2(170, player.global_position.y)
@@ -62,9 +64,20 @@ func move_room(x, y):
 	add_child(room)
 	room.z_index = -1
 	pause_room(room, false)
+	timer = Timer.new()
+	add_child(timer)
+	timer.wait_time = 0.5
+	timer.one_shot = true
+	timer.start()
+	timer.timeout.connect(_on_timer_timeout)
+
+func _on_timer_timeout() -> void:
+	$Player/CollisionShape2D.disabled = false
+	remove_child(timer)
 	
 func pause_room(room, pause):
 	pass
+	
 	
 func ncount(x, y, grid, WIDTH, HEIGHT):
 	var count = 0

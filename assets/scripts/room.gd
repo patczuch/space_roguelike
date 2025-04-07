@@ -24,19 +24,19 @@ func set_doors(_doors: Array):
 		$DoorRight.queue_free()
 	
 func on_up_door(body: CharacterBody2D):
-	if is_room_active():
+	if is_room_active() and not body.get_node("CollisionShape2D").disabled:
 		roomSpawner.move_room(0, -1)
 	
 func on_down_door(body: CharacterBody2D):
-	if is_room_active():
+	if is_room_active() and not body.get_node("CollisionShape2D").disabled:
 		roomSpawner.move_room(0, 1)
 	
 func on_left_door(body: CharacterBody2D):
-	if is_room_active():
+	if is_room_active() and not body.get_node("CollisionShape2D").disabled:
 		roomSpawner.move_room(-1, 0)
 
 func on_right_door(body: CharacterBody2D):
-	if is_room_active():
+	if is_room_active() and not body.get_node("CollisionShape2D").disabled:
 		roomSpawner.move_room(1, 0)
 
 func is_room_active():
