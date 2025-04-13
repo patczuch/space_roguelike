@@ -7,7 +7,10 @@ const SPEED = 10000.0
 
 
 func _physics_process(delta: float) -> void:
-	velocity = SPEED * delta * (player.global_position - $CollisionShape2D.global_position).normalized()
+	if player:
+		velocity = SPEED * delta * (player.global_position - $CollisionShape2D.global_position).normalized()
+	else:
+		velocity = Vector2(0, 0)
 
 	move_and_slide()
 

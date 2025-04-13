@@ -6,6 +6,7 @@ const SPEED = 15000.0
 @onready var sprite = $AnimatedSprite2D
 
 var bullet_scene: PackedScene = preload("res://assets/scenes/BasicBullet.tscn")
+var health = 3
 
 func _physics_process(delta: float) -> void:
 
@@ -37,3 +38,12 @@ func attack() -> void:
 	bullet.global_position = $CollisionShape2D.global_position
 	bullet.set_target(get_viewport().get_mouse_position())
 	get_parent().add_child(bullet)
+	
+	
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.get_parent() and area.get_parent().is_in_group("enemies"):
+		health -= 1
+	if health <= 0:
+		queue_free()
