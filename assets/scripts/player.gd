@@ -30,6 +30,8 @@ func _physics_process(delta: float) -> void:
 			sprite.flip_h = false
 		else:
 			sprite.flip_h = true
+			
+	#print(global_positiona)
 
 	move_and_slide()
 	
@@ -43,7 +45,7 @@ func attack() -> void:
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	if area.get_parent() and area.get_parent().is_in_group("enemies"):
+	if area.get_parent() and area.get_parent().is_in_group("enemies") or area.get_parent() is Spikes:
 		health -= 1
 	if health <= 0:
 		queue_free()

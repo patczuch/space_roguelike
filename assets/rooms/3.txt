@@ -1,0 +1,9 @@
+Octopus 300 300
+Octopus 400 300
+Octopus 500 300
+Octopus 600 300
+Octopus 700 300
+Octopus 800 300
+Wall 300 400
+Wall 1000 400
+Wall 650 500

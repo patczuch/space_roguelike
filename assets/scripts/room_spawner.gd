@@ -10,6 +10,8 @@ var floor: Array
 var curr_room: Vector2
 var timer
 
+var test_room = -1
+
 func _ready():
 	var width = 10
 	var height = 10
@@ -45,10 +47,16 @@ func _ready():
 				tmp_room.get_node("DoorRight").get_node("Sprite2D").modulate = Color(randf(), randf(), randf())
 				if x == start_room_x and y == start_room_y:
 					room = tmp_room
+					room.id = -1
 					add_child(room)
 					room.z_index = -1
 				else:
-					tmp_room.load_from_file(room_presets[randi() % room_presets.size()])
+					var id = randi() % room_presets.size()
+					if test_room == -1:
+						tmp_room.load_from_file(room_presets[id])
+					else:
+						tmp_room.load_from_file(room_presets[test_room])
+					tmp_room.id = id
 					pause_room(tmp_room, true)
 				floor[y][x] = tmp_room
 				
@@ -76,9 +84,11 @@ func move_room(x, y):
 	timer.one_shot = true
 	timer.start()
 	timer.timeout.connect(_on_timer_timeout)
+	print(room.id)
 
 func _on_timer_timeout() -> void:
-	$Player/CollisionShape2D.disabled = false
+	if player:
+		$Player/CollisionShape2D.disabled = false
 	remove_child(timer)
 	
 func pause_room(room, pause):
@@ -142,11 +152,11 @@ func generate_floorplan(min_rooms=7, max_rooms=15, WIDTH=10, HEIGHT=10):
 		if len(placed) >= min_rooms:
 			break
 
-	var boss_room = endrooms.pop_back()
-	grid[boss_room[1]][boss_room[0]] = 2  # boss
+	#var boss_room = endrooms.pop_back()
+	#grid[boss_room[1]][boss_room[0]] = 2  # boss
 
-	var reward_room = endrooms.pop_back()
-	grid[reward_room[1]][reward_room[0]] = 3  # reward
+	#var reward_room = endrooms.pop_back()
+	#grid[reward_room[1]][reward_room[0]] = 3  # reward
 
 	return grid
 	

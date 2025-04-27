@@ -1,1 +1,7 @@
-Octopus 150 150
+Button 400 300
+Button 800 300
+Spikes 550 250
+Spikes 650 250
+Spikes 600 350
+Wall 300 500
+Wall 900 500

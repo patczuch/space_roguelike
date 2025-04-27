@@ -3,6 +3,7 @@ class_name Room
 
 var roomSpawner: RoomSpawner
 var exited: bool
+var id: int
 
 func load_from_file(text: String):
 	var lines = text.split("\n")
@@ -14,8 +15,9 @@ func load_from_file(text: String):
 		
 		
 func _process(delta: float):
+	var flag = false
 	for node in get_children():
-		if node.is_in_group("enemies"):
+		if node.is_in_group("enemies") or node.is_in_group("buttons"):
 			if $DoorUp:
 				$DoorUp.visible = false
 				$DoorUp.get_node("CollisionShape2D").disabled = true
@@ -28,19 +30,20 @@ func _process(delta: float):
 			if $DoorRight:
 				$DoorRight.visible = false
 				$DoorRight.get_node("CollisionShape2D").disabled = true
-		else:
-			if $DoorUp:
-				$DoorUp.visible = true
-				$DoorUp.get_node("CollisionShape2D").disabled = false
-			if $DoorDown:
-				$DoorDown.visible = true
-				$DoorDown.get_node("CollisionShape2D").disabled = false
-			if $DoorLeft:
-				$DoorLeft.visible = true
-				$DoorLeft.get_node("CollisionShape2D").disabled = false
-			if $DoorRight:
-				$DoorRight.visible = true
-				$DoorRight.get_node("CollisionShape2D").disabled = false
+			flag = true
+	if not flag:
+		if $DoorUp:
+			$DoorUp.visible = true
+			$DoorUp.get_node("CollisionShape2D").disabled = false
+		if $DoorDown:
+			$DoorDown.visible = true
+			$DoorDown.get_node("CollisionShape2D").disabled = false
+		if $DoorLeft:
+			$DoorLeft.visible = true
+			$DoorLeft.get_node("CollisionShape2D").disabled = false
+		if $DoorRight:
+			$DoorRight.visible = true
+			$DoorRight.get_node("CollisionShape2D").disabled = false
 
 func set_doors(_doors: Array):
 	if not _doors[0]:

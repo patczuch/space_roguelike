@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://bsfwfdgs8lbr6"]
+
+[ext_resource type="Script" uid="uid://dvi7uervqkbfh" path="res://assets/scripts/button.gd" id="1_mko1e"]
+[ext_resource type="Texture2D" uid="uid://ce136ecvlg532" path="res://assets/textures/button.png" id="1_obgnx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mko1e"]
+radius = 25.0799
+
+[sub_resource type="GDScript" id="GDScript_m3bn2"]
+script/source = "extends Area2D
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aoful"]
+radius = 25.02
+
+[node name="Button" type="Node2D" groups=["buttons"]]
+script = ExtResource("1_mko1e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2.38419e-07, 0)
+scale = Vector2(0.975, 0.975)
+texture = ExtResource("1_obgnx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_mko1e")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+script = SubResource("GDScript_m3bn2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_aoful")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

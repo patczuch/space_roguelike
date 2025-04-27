@@ -34,7 +34,7 @@ texture = ExtResource("1_liqgt")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" groups=["enemies"]]
 position = Vector2(66, 363)
 shape = SubResource("RectangleShape2D_b2xlt")
 
