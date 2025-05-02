@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://tl4tyecfrm4o"]
+
+[ext_resource type="Script" uid="uid://rsx0o3d0if0w" path="res://assets/scripts/pause_menu.gd" id="1_g8a6p"]
+[ext_resource type="Texture2D" uid="uid://emwwd3cd8yhj" path="res://assets/textures/game_over.png" id="2_lxjwp"]
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g8a6p")
+
+[node name="ResumeButton" type="Button" parent="."]
+layout_mode = 0
+offset_top = 521.0
+offset_right = 256.0
+offset_bottom = 591.0
+text = "Resume"
+
+[node name="ExitButton" type="Button" parent="."]
+layout_mode = 0
+offset_top = 598.0
+offset_right = 256.0
+offset_bottom = 668.0
+text = "Exit"
+
+[node name="RetryButton" type="Button" parent="."]
+offset_left = 508.0
+offset_top = 308.0
+offset_right = 764.0
+offset_bottom = 378.0
+text = "Retry"
+
+[node name="ExitButton2" type="Button" parent="."]
+offset_left = 508.0
+offset_top = 385.0
+offset_right = 764.0
+offset_bottom = 455.0
+text = "Exit"
+
+[node name="GameOver" type="Sprite2D" parent="."]
+position = Vector2(634, 219)
+scale = Vector2(0.487055, 0.487055)
+texture = ExtResource("2_lxjwp")
+
+[connection signal="pressed" from="ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="ExitButton2" to="." method="_on_exit_button_pressed"]

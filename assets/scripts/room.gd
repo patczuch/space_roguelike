@@ -77,6 +77,8 @@ func on_right_door(body: CharacterBody2D):
 		roomSpawner.move_room(1, 0)
 
 func is_room_active():
+	if not roomSpawner or not roomSpawner.room:
+		return false
 	return roomSpawner.room == self
 	
 func set_color(r, g, b):

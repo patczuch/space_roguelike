@@ -9,29 +9,30 @@ var bullet_scene: PackedScene = preload("res://assets/scenes/BasicBullet.tscn")
 var health = 3
 
 func _physics_process(delta: float) -> void:
+	if Engine.time_scale > 0:
 
-	if Input.is_action_just_pressed("attack"):
-		attack()
-		
-	var dir_left_right := Input.get_axis("left", "right")
-	velocity.x = dir_left_right * SPEED * delta
-		
-	var dir_up_down := Input.get_axis("up", "down")
-	velocity.y = dir_up_down * SPEED * delta
-		
-		
-	if dir_left_right or dir_up_down:
-		sprite.play("walk")
-	else:
-		sprite.play("idle")
-		
-	if dir_left_right:
-		if dir_left_right > 0:
-			sprite.flip_h = false
-		else:
-			sprite.flip_h = true
+		if Input.is_action_just_pressed("attack"):
+			attack()
 			
-	#print(global_positiona)
+		var dir_left_right := Input.get_axis("left", "right")
+		velocity.x = dir_left_right * SPEED * delta
+			
+		var dir_up_down := Input.get_axis("up", "down")
+		velocity.y = dir_up_down * SPEED * delta
+			
+			
+		if dir_left_right or dir_up_down:
+			sprite.play("walk")
+		else:
+			sprite.play("idle")
+			
+		if dir_left_right:
+			if dir_left_right > 0:
+				sprite.flip_h = false
+			else:
+				sprite.flip_h = true
+				
+		#print(global_positiona)
 
 	move_and_slide()
 	
@@ -48,4 +49,5 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.get_parent() and area.get_parent().is_in_group("enemies") or area.get_parent() is Spikes:
 		health -= 1
 	if health <= 0:
+		get_tree().root.get_node("RoomSpawner").get_node("PauseMenu").show_game_over()
 		queue_free()
