@@ -5,6 +5,9 @@ const SPEED = 10000.0
 
 @onready var player: CharacterBody2D = get_tree().get_nodes_in_group("player")[0]
 
+var health = 20
+var max_health = 20
+
 
 func _physics_process(delta: float) -> void:
 	if player:
@@ -13,9 +16,14 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector2(0, 0)
 
 	move_and_slide()
+	
+	
+func _process(delta: float) -> void:
+	if health <= 0:
+		queue_free()
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area is BasicBullet:
 		area.queue_free()
-		queue_free()
+		health -= area.damage

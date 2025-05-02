@@ -7,6 +7,9 @@ const SPEED = 15000.0
 
 var bullet_scene: PackedScene = preload("res://assets/scenes/BasicBullet.tscn")
 var health = 3
+var immunity_time = 0.5
+var immune = false
+var curr_immunity_time = 0
 
 func _physics_process(delta: float) -> void:
 	if Engine.time_scale > 0:
@@ -34,6 +37,12 @@ func _physics_process(delta: float) -> void:
 				
 		#print(global_positiona)
 
+		curr_immunity_time += delta
+		if immune:
+			$AnimatedSprite2D.modulate = Color(1, lerp(0.0, 1.0, curr_immunity_time / immunity_time),lerp(0.0, 1.0, curr_immunity_time / immunity_time), 1)
+		else:
+			$AnimatedSprite2D.modulate = Color(1, 1, 1, 1)
+		
 	move_and_slide()
 	
 func attack() -> void:
@@ -42,12 +51,23 @@ func attack() -> void:
 	bullet.set_target(get_viewport().get_mouse_position())
 	get_parent().add_child(bullet)
 	
-	
-
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.get_parent() and area.get_parent().is_in_group("enemies") or area.get_parent() is Spikes:
-		health -= 1
+		if not immune:
+			health -= 1
+			curr_immunity_time = 0
+			immune = true
+			var timer = Timer.new()
+			add_child(timer)
+			timer.wait_time = immunity_time
+			timer.one_shot = true
+			timer.start()
+			timer.timeout.connect(_on_timer_timeout)
 	if health <= 0:
 		get_tree().root.get_node("RoomSpawner").get_node("PauseMenu").show_game_over()
 		queue_free()
+		
+func _on_timer_timeout() -> void:
+	immune = false
+	curr_immunity_time = 0
