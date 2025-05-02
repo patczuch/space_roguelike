@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://e861k775bnw3"]
 
-[ext_resource type="Script" uid="uid://b6qgt6seyuglw" path="res://assets/scenes/spikes.gd" id="1_qik2g"]
+[ext_resource type="Script" uid="uid://b6qgt6seyuglw" path="res://assets/scripts/spikes.gd" id="1_qik2g"]
 [ext_resource type="Texture2D" uid="uid://cylm122nxbmgy" path="res://assets/textures/spikes.png" id="1_xmuwl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qik2g"]
@@ -17,6 +17,7 @@ size = Vector2(57, 59)
 script = ExtResource("1_qik2g")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -2
 position = Vector2(5.68434e-14, -5.68434e-14)
 scale = Vector2(0.697917, 0.697917)
 texture = ExtResource("1_xmuwl")

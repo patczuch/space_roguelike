@@ -40,11 +40,8 @@ func _ready():
 				var tmp_room = room_scene.instantiate()
 				tmp_room.roomSpawner = self
 				tmp_room.set_doors([y-1 >= 0 and plan[y-1][x] != 0, y+1 < height and plan[y+1][x] != 0, x-1 >= 0 and plan[y][x-1] != 0, x+1 < width and plan[y][x+1] != 0])
-				tmp_room.get_node("Background").modulate = Color(randf(), randf(), randf())
-				tmp_room.get_node("DoorUp").get_node("Sprite2D").modulate = Color(randf(), randf(), randf())
-				tmp_room.get_node("DoorDown").get_node("Sprite2D").modulate = Color(randf(), randf(), randf())
-				tmp_room.get_node("DoorLeft").get_node("Sprite2D").modulate = Color(randf(), randf(), randf())
-				tmp_room.get_node("DoorRight").get_node("Sprite2D").modulate = Color(randf(), randf(), randf())
+				tmp_room.set_color(randf(), randf(), randf())
+				tmp_room.roomPosition = Vector2(x, y)
 				if x == start_room_x and y == start_room_y:
 					room = tmp_room
 					room.id = -1

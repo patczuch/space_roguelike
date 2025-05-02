@@ -28,6 +28,7 @@ size = Vector2(0.253003, 0.765439)
 script = ExtResource("1_cocmf")
 
 [node name="Background" type="Sprite2D" parent="."]
+z_index = -10
 position = Vector2(640, 360)
 scale = Vector2(2.73504, 2.30769)
 texture = ExtResource("1_liqgt")

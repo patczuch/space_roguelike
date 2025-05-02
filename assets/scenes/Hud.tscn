@@ -1,13 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://ctms207l4qfnb"]
+[gd_scene load_steps=5 format=3 uid="uid://ctms207l4qfnb"]
 
 [ext_resource type="Script" uid="uid://bxgb3s45o87fy" path="res://assets/scripts/hud.gd" id="1_1hr42"]
 [ext_resource type="Texture2D" uid="uid://c4ou1qi0tyvh1" path="res://assets/textures/heart.png" id="1_tdpgl"]
+[ext_resource type="Texture2D" uid="uid://cce7rtkos5rq" path="res://assets/textures/room_icon.png" id="3_quwny"]
+[ext_resource type="Texture2D" uid="uid://b2a00wqrpqvdn" path="res://assets/textures/player_icon.png" id="4_3tbtb"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -13.0
+offset_top = -2.0
+offset_right = -13.0
+offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1hr42")
@@ -26,3 +32,453 @@ texture = ExtResource("1_tdpgl")
 position = Vector2(161, 43)
 scale = Vector2(6, 6)
 texture = ExtResource("1_tdpgl")
+
+[node name="Heart4" type="Sprite2D" parent="."]
+position = Vector2(220, 43)
+scale = Vector2(6, 6)
+texture = ExtResource("1_tdpgl")
+
+[node name="Heart5" type="Sprite2D" parent="."]
+position = Vector2(279, 43)
+scale = Vector2(6, 6)
+texture = ExtResource("1_tdpgl")
+
+[node name="Heart6" type="Sprite2D" parent="."]
+position = Vector2(338, 43)
+scale = Vector2(6, 6)
+texture = ExtResource("1_tdpgl")
+
+[node name="Heart7" type="Sprite2D" parent="."]
+position = Vector2(43, 102)
+scale = Vector2(6, 6)
+texture = ExtResource("1_tdpgl")
+
+[node name="Heart8" type="Sprite2D" parent="."]
+position = Vector2(102, 102)
+scale = Vector2(6, 6)
+texture = ExtResource("1_tdpgl")
+
+[node name="Heart9" type="Sprite2D" parent="."]
+position = Vector2(161, 102)
+scale = Vector2(6, 6)
+texture = ExtResource("1_tdpgl")
+
+[node name="Heart10" type="Sprite2D" parent="."]
+position = Vector2(220, 102)
+scale = Vector2(6, 6)
+texture = ExtResource("1_tdpgl")
+
+[node name="Heart11" type="Sprite2D" parent="."]
+position = Vector2(279, 102)
+scale = Vector2(6, 6)
+texture = ExtResource("1_tdpgl")
+
+[node name="Heart12" type="Sprite2D" parent="."]
+position = Vector2(338, 102)
+scale = Vector2(6, 6)
+texture = ExtResource("1_tdpgl")
+
+[node name="RoomIcon" type="Sprite2D" parent="."]
+position = Vector2(999, 27)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon2" type="Sprite2D" parent="."]
+position = Vector2(1029, 27)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon3" type="Sprite2D" parent="."]
+position = Vector2(1059, 27)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon4" type="Sprite2D" parent="."]
+position = Vector2(1089, 27)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon5" type="Sprite2D" parent="."]
+position = Vector2(1119, 27)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon6" type="Sprite2D" parent="."]
+position = Vector2(1149, 27)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon7" type="Sprite2D" parent="."]
+position = Vector2(1179, 27)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon8" type="Sprite2D" parent="."]
+position = Vector2(1209, 27)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon9" type="Sprite2D" parent="."]
+position = Vector2(1239, 27)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon10" type="Sprite2D" parent="."]
+position = Vector2(1269, 27)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon11" type="Sprite2D" parent="."]
+position = Vector2(999, 57)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon12" type="Sprite2D" parent="."]
+position = Vector2(1029, 57)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon13" type="Sprite2D" parent="."]
+position = Vector2(1059, 57)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon14" type="Sprite2D" parent="."]
+position = Vector2(1089, 57)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon15" type="Sprite2D" parent="."]
+position = Vector2(1119, 57)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon16" type="Sprite2D" parent="."]
+position = Vector2(1149, 57)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon17" type="Sprite2D" parent="."]
+position = Vector2(1179, 57)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon18" type="Sprite2D" parent="."]
+position = Vector2(1209, 57)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon19" type="Sprite2D" parent="."]
+position = Vector2(1239, 57)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon20" type="Sprite2D" parent="."]
+position = Vector2(1269, 57)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon21" type="Sprite2D" parent="."]
+position = Vector2(999, 87)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon22" type="Sprite2D" parent="."]
+position = Vector2(1029, 87)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon23" type="Sprite2D" parent="."]
+position = Vector2(1059, 87)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon24" type="Sprite2D" parent="."]
+position = Vector2(1089, 87)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon25" type="Sprite2D" parent="."]
+position = Vector2(1119, 87)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon26" type="Sprite2D" parent="."]
+position = Vector2(1149, 87)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon27" type="Sprite2D" parent="."]
+position = Vector2(1179, 87)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon28" type="Sprite2D" parent="."]
+position = Vector2(1209, 87)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon29" type="Sprite2D" parent="."]
+position = Vector2(1239, 87)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon30" type="Sprite2D" parent="."]
+position = Vector2(1269, 87)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon31" type="Sprite2D" parent="."]
+position = Vector2(999, 117)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon32" type="Sprite2D" parent="."]
+position = Vector2(1029, 117)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon33" type="Sprite2D" parent="."]
+position = Vector2(1059, 117)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon34" type="Sprite2D" parent="."]
+position = Vector2(1089, 117)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon35" type="Sprite2D" parent="."]
+position = Vector2(1119, 117)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon36" type="Sprite2D" parent="."]
+position = Vector2(1149, 117)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon37" type="Sprite2D" parent="."]
+position = Vector2(1179, 117)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon38" type="Sprite2D" parent="."]
+position = Vector2(1209, 117)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon39" type="Sprite2D" parent="."]
+position = Vector2(1239, 117)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon40" type="Sprite2D" parent="."]
+position = Vector2(1269, 117)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon41" type="Sprite2D" parent="."]
+position = Vector2(999, 147)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon42" type="Sprite2D" parent="."]
+position = Vector2(1029, 147)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon43" type="Sprite2D" parent="."]
+position = Vector2(1059, 147)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon44" type="Sprite2D" parent="."]
+position = Vector2(1089, 147)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon45" type="Sprite2D" parent="."]
+position = Vector2(1119, 147)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon46" type="Sprite2D" parent="."]
+position = Vector2(1149, 147)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon47" type="Sprite2D" parent="."]
+position = Vector2(1179, 147)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon48" type="Sprite2D" parent="."]
+position = Vector2(1209, 147)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon49" type="Sprite2D" parent="."]
+position = Vector2(1239, 147)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon50" type="Sprite2D" parent="."]
+position = Vector2(1269, 147)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon51" type="Sprite2D" parent="."]
+position = Vector2(999, 177)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon52" type="Sprite2D" parent="."]
+position = Vector2(1029, 177)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon53" type="Sprite2D" parent="."]
+position = Vector2(1059, 177)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon54" type="Sprite2D" parent="."]
+position = Vector2(1089, 177)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon55" type="Sprite2D" parent="."]
+position = Vector2(1119, 177)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon56" type="Sprite2D" parent="."]
+position = Vector2(1149, 177)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon57" type="Sprite2D" parent="."]
+position = Vector2(1179, 177)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon58" type="Sprite2D" parent="."]
+position = Vector2(1209, 177)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon59" type="Sprite2D" parent="."]
+position = Vector2(1239, 177)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon60" type="Sprite2D" parent="."]
+position = Vector2(1269, 177)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon61" type="Sprite2D" parent="."]
+position = Vector2(999, 207)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon62" type="Sprite2D" parent="."]
+position = Vector2(1029, 207)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon63" type="Sprite2D" parent="."]
+position = Vector2(1059, 207)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon64" type="Sprite2D" parent="."]
+position = Vector2(1089, 207)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon65" type="Sprite2D" parent="."]
+position = Vector2(1119, 207)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon66" type="Sprite2D" parent="."]
+position = Vector2(1149, 207)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon67" type="Sprite2D" parent="."]
+position = Vector2(1179, 207)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon68" type="Sprite2D" parent="."]
+position = Vector2(1209, 207)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon69" type="Sprite2D" parent="."]
+position = Vector2(1239, 207)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon70" type="Sprite2D" parent="."]
+position = Vector2(1269, 207)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon71" type="Sprite2D" parent="."]
+position = Vector2(999, 237)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon72" type="Sprite2D" parent="."]
+position = Vector2(1029, 237)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon73" type="Sprite2D" parent="."]
+position = Vector2(1059, 237)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon74" type="Sprite2D" parent="."]
+position = Vector2(1089, 237)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon75" type="Sprite2D" parent="."]
+position = Vector2(1119, 237)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon76" type="Sprite2D" parent="."]
+position = Vector2(1149, 237)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon77" type="Sprite2D" parent="."]
+position = Vector2(1179, 237)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon78" type="Sprite2D" parent="."]
+position = Vector2(1209, 237)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon79" type="Sprite2D" parent="."]
+position = Vector2(1239, 237)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon80" type="Sprite2D" parent="."]
+position = Vector2(1269, 237)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon81" type="Sprite2D" parent="."]
+position = Vector2(999, 267)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon82" type="Sprite2D" parent="."]
+position = Vector2(1029, 267)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon83" type="Sprite2D" parent="."]
+position = Vector2(1059, 267)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon84" type="Sprite2D" parent="."]
+position = Vector2(1089, 267)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon85" type="Sprite2D" parent="."]
+position = Vector2(1119, 267)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon86" type="Sprite2D" parent="."]
+position = Vector2(1149, 267)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon87" type="Sprite2D" parent="."]
+position = Vector2(1179, 267)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon88" type="Sprite2D" parent="."]
+position = Vector2(1209, 267)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon89" type="Sprite2D" parent="."]
+position = Vector2(1239, 267)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon90" type="Sprite2D" parent="."]
+position = Vector2(1269, 267)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon91" type="Sprite2D" parent="."]
+position = Vector2(999, 297)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon92" type="Sprite2D" parent="."]
+position = Vector2(1029, 297)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon93" type="Sprite2D" parent="."]
+position = Vector2(1059, 297)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon94" type="Sprite2D" parent="."]
+position = Vector2(1089, 297)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon95" type="Sprite2D" parent="."]
+position = Vector2(1119, 297)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon96" type="Sprite2D" parent="."]
+position = Vector2(1149, 297)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon97" type="Sprite2D" parent="."]
+position = Vector2(1179, 297)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon98" type="Sprite2D" parent="."]
+position = Vector2(1209, 297)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon99" type="Sprite2D" parent="."]
+position = Vector2(1239, 297)
+texture = ExtResource("3_quwny")
+
+[node name="RoomIcon100" type="Sprite2D" parent="."]
+position = Vector2(1269, 297)
+texture = ExtResource("3_quwny")
+
+[node name="PlayerIcon" type="Sprite2D" parent="."]
+position = Vector2(999, 27)
+scale = Vector2(1.75, 1.75)
+texture = ExtResource("4_3tbtb")
