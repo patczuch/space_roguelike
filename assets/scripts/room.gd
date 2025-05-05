@@ -7,8 +7,12 @@ var id: int
 var roomPosition
 var color
 
+var reward_spawned = false
+var heart_chance = 0.5
+
 var open_door_texture = load('res://assets/textures/door.png')
 var closed_door_texture = load('res://assets/textures/door_closed.png')
+var heart_scene = load("res://assets/scenes/heart.tscn")
 
 func load_from_file(text: String):
 	var lines = text.split("\n")
@@ -17,7 +21,19 @@ func load_from_file(text: String):
 		var object = load("res://assets/scenes/" + params[0] + ".tscn").instantiate()
 		object.global_position = Vector2(float(params[1]), float(params[2]))
 		add_child(object)
-		
+
+func is_spawn_area_clear_2d(spawn_position: Vector2, colShape) -> bool:
+	var space_state = get_world_2d().direct_space_state
+	var transform = Transform2D(0, spawn_position)
+
+	var query = PhysicsShapeQueryParameters2D.new()
+	query.shape = colShape 
+	query.transform = transform
+	query.collision_mask = (1 << 0) | (1 << 1)
+
+	var result = space_state.intersect_shape(query, 10)
+	#print(result)
+	return result.is_empty()		
 		
 func _process(delta: float):
 	var flag = false
@@ -49,6 +65,23 @@ func _process(delta: float):
 		if $DoorRight:
 			$DoorRight.get_node("Sprite2D").texture = open_door_texture
 			$DoorRight.get_node("CollisionShape2D").disabled = false
+		if not reward_spawned and id >= 0:
+			for j in range(1):
+				if randf() <= heart_chance:
+					var position
+					var flag2 = false
+					var heartColShape = heart_scene.instantiate().get_node("Area2D").get_node("CollisionShape2D").shape
+					for i in range(50):
+						position = Vector2(lerp(165, 1120, randf()), lerp(125, 560, randf()))
+						if is_spawn_area_clear_2d(position, heartColShape):
+							flag2 = true
+							break
+					if flag2:
+						var heart = heart_scene.instantiate()
+						heart.global_position = position
+						add_child(heart)
+			reward_spawned = true
+			
 
 func set_doors(_doors: Array):
 	if not _doors[0]:

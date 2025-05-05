@@ -5,6 +5,9 @@ var player: CharacterBody2D
 @onready var room_icons = [$RoomIcon, $RoomIcon2, $RoomIcon3, $RoomIcon4, $RoomIcon5, $RoomIcon6, $RoomIcon7, $RoomIcon8, $RoomIcon9, $RoomIcon10, $RoomIcon11, $RoomIcon12, $RoomIcon13, $RoomIcon14, $RoomIcon15, $RoomIcon16, $RoomIcon17, $RoomIcon18, $RoomIcon19, $RoomIcon20, $RoomIcon21, $RoomIcon22, $RoomIcon23, $RoomIcon24, $RoomIcon25, $RoomIcon26, $RoomIcon27, $RoomIcon28, $RoomIcon29, $RoomIcon30, $RoomIcon31, $RoomIcon32, $RoomIcon33, $RoomIcon34, $RoomIcon35, $RoomIcon36, $RoomIcon37, $RoomIcon38, $RoomIcon39, $RoomIcon40, $RoomIcon41, $RoomIcon42, $RoomIcon43, $RoomIcon44, $RoomIcon45, $RoomIcon46, $RoomIcon47, $RoomIcon48, $RoomIcon49, $RoomIcon50, $RoomIcon51, $RoomIcon52, $RoomIcon53, $RoomIcon54, $RoomIcon55, $RoomIcon56, $RoomIcon57, $RoomIcon58, $RoomIcon59, $RoomIcon60, $RoomIcon61, $RoomIcon62, $RoomIcon63, $RoomIcon64, $RoomIcon65, $RoomIcon66, $RoomIcon67, $RoomIcon68, $RoomIcon69, $RoomIcon70, $RoomIcon71, $RoomIcon72, $RoomIcon73, $RoomIcon74, $RoomIcon75, $RoomIcon76, $RoomIcon77, $RoomIcon78, $RoomIcon79, $RoomIcon80, $RoomIcon81, $RoomIcon82, $RoomIcon83, $RoomIcon84, $RoomIcon85, $RoomIcon86, $RoomIcon87, $RoomIcon88, $RoomIcon89, $RoomIcon90, $RoomIcon91, $RoomIcon92, $RoomIcon93, $RoomIcon94, $RoomIcon95, $RoomIcon96, $RoomIcon97, $RoomIcon98, $RoomIcon99, $RoomIcon100]
 @onready var player_icon = $PlayerIcon
 
+func add_points(points) -> void:
+	$Points.text = str(int($Points.text) + points)
+
 func _ready() -> void:
 	for i in range(len(room_icons)):
 			room_icons[i].visible = false

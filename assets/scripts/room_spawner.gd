@@ -30,11 +30,13 @@ func _ready():
 			floor[i].append(null)
 			
 	var room_presets = load_files("res://assets/rooms/")
-	
-	var plan = generate_floorplan(7, 15, width, height)
+		
+	var plan = null
+	while plan == null:
+		plan = generate_floorplan(7, 15, width, height)
 	
 	for y in range(len(plan)):
-		print(plan[y])
+		#print(plan[y])
 		for x in range(len(plan[y])):
 			if plan[y][x] != 0:
 				var tmp_room = room_scene.instantiate()
@@ -50,10 +52,18 @@ func _ready():
 				else:
 					var id = randi() % room_presets.size()
 					if test_room == -1:
-						tmp_room.load_from_file(room_presets[id])
+						if plan[y][x] == 2:
+							var file2 = FileAccess.open("res://assets/rooms/special/next_floor.txt", FileAccess.READ)
+							if file2:
+								var content2 = file2.get_as_text()
+								tmp_room.load_from_file(content2)
+								file2.close()
+							tmp_room.id = -2
+						else:
+							tmp_room.load_from_file(room_presets[id])
+							tmp_room.id = id
 					else:
 						tmp_room.load_from_file(room_presets[test_room])
-					tmp_room.id = id
 					pause_room(tmp_room, true)
 				floor[y][x] = tmp_room
 				
@@ -81,7 +91,7 @@ func move_room(x, y):
 	timer.one_shot = true
 	timer.start()
 	timer.timeout.connect(_on_timer_timeout)
-	print(room.id)
+	#print(room.id)
 
 func _on_timer_timeout() -> void:
 	if player:
@@ -149,8 +159,11 @@ func generate_floorplan(min_rooms=7, max_rooms=15, WIDTH=10, HEIGHT=10):
 		if len(placed) >= min_rooms:
 			break
 
-	#var boss_room = endrooms.pop_back()
-	#grid[boss_room[1]][boss_room[0]] = 2  # boss
+	if len(endrooms) < 1:
+		return null
+		
+	var next_floor = endrooms.pop_back()
+	grid[next_floor[1]][next_floor[0]] = 2
 
 	#var reward_room = endrooms.pop_back()
 	#grid[reward_room[1]][reward_room[0]] = 3  # reward

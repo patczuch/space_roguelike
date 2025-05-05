@@ -17,3 +17,5 @@ shape = SubResource("CircleShape2D_pohci")
 z_index = 1
 scale = Vector2(2, 2)
 texture = ExtResource("1_pohci")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

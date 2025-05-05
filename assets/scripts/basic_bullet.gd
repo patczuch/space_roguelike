@@ -11,3 +11,7 @@ func _physics_process(delta: float) -> void:
 	
 func set_target(mouse_pos: Vector2) -> void:
 	direction = (mouse_pos - $CollisionShape2D.global_position).normalized()
+
+
+func _on_body_entered(body: Node2D) -> void:
+	queue_free()
