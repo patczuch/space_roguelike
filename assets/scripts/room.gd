@@ -119,7 +119,7 @@ func set_color(r, g, b):
 	g  = min(max(g, 0.4 + randf() / 5), 1)
 	b = min(max(b, 0.4 + randf() / 5), 1)
 	color = Color(r,g,b)
-	var color2 = Color(r-0.2,g-0.2,b-0.2)
+	var color2 = Color(r+0.4,g+0.4,b+0.4)
 	get_node("Background").modulate = color
 	get_node("DoorUp").get_node("Sprite2D").modulate = color2
 	get_node("DoorDown").get_node("Sprite2D").modulate = color2

@@ -13,6 +13,7 @@ func _ready() -> void:
 			room_icons[i].visible = false
 			room_icons[i].z_index = 100
 	player_icon.z_index = 101
+	$Points.text = Global.points
 
 func _process(delta: float) -> void:
 	if get_tree().get_nodes_in_group("player"):

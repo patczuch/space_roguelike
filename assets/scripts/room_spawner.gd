@@ -12,6 +12,17 @@ var timer
 
 var test_room = -1
 
+var change_floor = false
+
+func _process(delta: float) -> void:
+	if not change_floor and $Black.modulate.a > 0:
+		$Black.modulate = Color(1, 1, 1, $Black.modulate.a - 0.01)
+	if change_floor and $Black.modulate.a < 1:
+		$Black.modulate = Color(1, 1, 1, $Black.modulate.a + 0.01)
+	if change_floor and $Black.modulate.a >= 1:
+		Global.points = get_node("Hud").get_node("Points").text
+		get_tree().change_scene_to_file("res://assets/scenes/RoomSpawner.tscn")
+
 func _ready():
 	var width = 10
 	var height = 10
@@ -62,6 +73,13 @@ func _ready():
 						else:
 							tmp_room.load_from_file(room_presets[id])
 							tmp_room.id = id
+					elif test_room == -2:
+						var file2 = FileAccess.open("res://assets/rooms/special/next_floor.txt", FileAccess.READ)
+						if file2:
+							var content2 = file2.get_as_text()
+							tmp_room.load_from_file(content2)
+							file2.close()
+						tmp_room.id = -2
 					else:
 						tmp_room.load_from_file(room_presets[test_room])
 					pause_room(tmp_room, true)

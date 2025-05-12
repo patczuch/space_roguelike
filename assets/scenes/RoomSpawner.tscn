@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://1ud11frbyufv"]
+[gd_scene load_steps=5 format=3 uid="uid://1ud11frbyufv"]
 
 [ext_resource type="Script" uid="uid://ilao8848ljb7" path="res://assets/scripts/room_spawner.gd" id="1_lfodh"]
 [ext_resource type="PackedScene" uid="uid://ctms207l4qfnb" path="res://assets/scenes/Hud.tscn" id="2_sjgw6"]
 [ext_resource type="PackedScene" uid="uid://tl4tyecfrm4o" path="res://assets/scenes/PauseMenu.tscn" id="3_0723h"]
+[ext_resource type="Texture2D" uid="uid://comnyrj7mbyao" path="res://assets/textures/black.png" id="4_vhb6b"]
 
 [node name="RoomSpawner" type="Node2D"]
 script = ExtResource("1_lfodh")
@@ -10,3 +11,9 @@ script = ExtResource("1_lfodh")
 [node name="Hud" parent="." instance=ExtResource("2_sjgw6")]
 
 [node name="PauseMenu" parent="." instance=ExtResource("3_0723h")]
+
+[node name="Black" type="Sprite2D" parent="."]
+z_index = 1000
+position = Vector2(640, 360)
+scale = Vector2(160, 90)
+texture = ExtResource("4_vhb6b")

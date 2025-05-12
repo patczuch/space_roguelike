@@ -6,10 +6,13 @@ const SPEED = 15000.0
 @onready var sprite = $AnimatedSprite2D
 
 var bullet_scene: PackedScene = preload("res://assets/scenes/BasicBullet.tscn")
-var health = 3
+var health
 var immunity_time = 0.5
 var immune = false
 var curr_immunity_time = 0
+
+func _ready() -> void:
+	health = Global.player_health
 
 func _physics_process(delta: float) -> void:
 	if Engine.time_scale > 0:
@@ -56,6 +59,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.get_parent() and area.get_parent().is_in_group("enemies") or area.get_parent() is Spikes:
 		if not immune:
 			health -= 1
+			Global.player_health = health
 			curr_immunity_time = 0
 			immune = true
 			var timer = Timer.new()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dcitp2mgdiufb"]
+[gd_scene load_steps=7 format=3 uid="uid://dcitp2mgdiufb"]
 
 [ext_resource type="Script" uid="uid://488ylyjmxb65" path="res://assets/scripts/room.gd" id="1_cocmf"]
 [ext_resource type="Texture2D" uid="uid://cuttygp14rb56" path="res://assets/textures/background.png" id="1_liqgt"]
@@ -13,24 +13,15 @@ resource_local_to_scene = true
 size = Vector2(1306, 122)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c7l2i"]
-size = Vector2(20.6667, 3.66666)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nblnx"]
-size = Vector2(6.88891, 1.77777)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_iqtem"]
-size = Vector2(0.253003, 0.765439)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_p3244"]
-size = Vector2(0.253003, 0.765439)
+size = Vector2(23.3333, 3.66666)
 
 [node name="Room" type="Node2D"]
 script = ExtResource("1_cocmf")
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -10
-position = Vector2(640, 360)
-scale = Vector2(2.73504, 2.30769)
+position = Vector2(642.188, 362)
+scale = Vector2(1.7417, 1.50391)
 texture = ExtResource("1_liqgt")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -58,60 +49,63 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DoorUp"]
-position = Vector2(0, 16.5)
+position = Vector2(0, 16.6667)
 shape = SubResource("RectangleShape2D_c7l2i")
 
 [node name="Sprite2D" type="Sprite2D" parent="DoorUp"]
+position = Vector2(0, 4.33333)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_b2xlt")
 
 [node name="DoorDown" type="Area2D" parent="."]
 position = Vector2(638, 639)
-scale = Vector2(9, 9)
+scale = Vector2(3, 3)
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorDown"]
-position = Vector2(0.222221, -4.22048)
-shape = SubResource("RectangleShape2D_nblnx")
-
 [node name="Sprite2D" type="Sprite2D" parent="DoorDown"]
-position = Vector2(0.222221, 1.22396)
+position = Vector2(0.333325, -0.666665)
 rotation = -3.14159
-scale = Vector2(0.333333, 0.333333)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_b2xlt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorDown"]
+position = Vector2(0.333328, -13.3333)
+shape = SubResource("RectangleShape2D_c7l2i")
 
 [node name="DoorLeft" type="Area2D" parent="."]
 position = Vector2(98, 363)
-scale = Vector2(81, 81)
+scale = Vector2(3, 3)
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorLeft"]
-position = Vector2(0.506173, -0.0368443)
-shape = SubResource("RectangleShape2D_iqtem")
-
 [node name="Sprite2D" type="Sprite2D" parent="DoorLeft"]
-position = Vector2(-0.0709876, -0.0368443)
+position = Vector2(2.33333, 0.666667)
 rotation = -1.5708
-scale = Vector2(0.037037, 0.037037)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_b2xlt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorLeft"]
+position = Vector2(14.6667, 0.666672)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_c7l2i")
 
 [node name="DoorRight" type="Area2D" parent="."]
 position = Vector2(2.0992e+06, 229600)
-scale = Vector2(6561, 6561)
+scale = Vector2(3, 3)
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorRight"]
-position = Vector2(-319.777, -34.9398)
-scale = Vector2(0.0123457, 0.0123457)
-shape = SubResource("RectangleShape2D_p3244")
-
 [node name="Sprite2D" type="Sprite2D" parent="DoorRight"]
-position = Vector2(-319.77, -34.9398)
+position = Vector2(-699342, -76410.7)
 rotation = 1.5708
-scale = Vector2(0.000457247, 0.000457247)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_b2xlt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorRight"]
+position = Vector2(-699354, -76410.7)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_c7l2i")
 
 [connection signal="body_entered" from="DoorUp" to="." method="on_up_door"]
 [connection signal="body_entered" from="DoorDown" to="." method="on_down_door"]
