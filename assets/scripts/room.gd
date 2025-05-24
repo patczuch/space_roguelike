@@ -9,10 +9,14 @@ var color
 
 var reward_spawned = false
 var heart_chance = 0.5
+var shotgun_chance = 0.5
+var machinegun_chance = 0.3
 
 var open_door_texture = load('res://assets/textures/door.png')
 var closed_door_texture = load('res://assets/textures/door_closed.png')
 var heart_scene = load("res://assets/scenes/heart.tscn")
+var shotgun_scene = load("res://assets/scenes/Shotgun.tscn")
+var machinegun_scene = load("res://assets/scenes/Machinegun.tscn")
 
 func load_from_file(text: String):
 	var lines = text.split("\n")
@@ -66,20 +70,45 @@ func _process(delta: float):
 			$DoorRight.get_node("Sprite2D").texture = open_door_texture
 			$DoorRight.get_node("CollisionShape2D").disabled = false
 		if not reward_spawned and id >= 0:
-			for j in range(1):
-				if randf() <= heart_chance:
-					var position
-					var flag2 = false
-					var heartColShape = heart_scene.instantiate().get_node("Area2D").get_node("CollisionShape2D").shape
-					for i in range(50):
-						position = Vector2(lerp(165, 1120, randf()), lerp(125, 560, randf()))
-						if is_spawn_area_clear_2d(position, heartColShape):
-							flag2 = true
-							break
-					if flag2:
-						var heart = heart_scene.instantiate()
-						heart.global_position = position
-						add_child(heart)
+			if randf() <= heart_chance:
+				var position
+				var flag2 = false
+				var heartColShape = heart_scene.instantiate().get_node("Area2D").get_node("CollisionShape2D").shape
+				for i in range(50):
+					position = Vector2(lerp(165, 1120, randf()), lerp(125, 560, randf()))
+					if is_spawn_area_clear_2d(position, heartColShape):
+						flag2 = true
+						break
+				if flag2:
+					var heart = heart_scene.instantiate()
+					heart.global_position = position
+					add_child(heart)
+			if randf() <= shotgun_chance:
+				var position
+				var flag2 = false
+				var shotgunColShape = shotgun_scene.instantiate().get_node("Area2D").get_node("CollisionShape2D").shape
+				for i in range(50):
+					position = Vector2(lerp(165, 1120, randf()), lerp(125, 560, randf()))
+					if is_spawn_area_clear_2d(position, shotgunColShape):
+						flag2 = true
+						break
+				if flag2:
+					var shotgun = shotgun_scene.instantiate()
+					shotgun.global_position = position
+					add_child(shotgun)
+			if randf() <= machinegun_chance:
+				var position
+				var flag2 = false
+				var machinegunColShape = machinegun_scene.instantiate().get_node("Area2D").get_node("CollisionShape2D").shape
+				for i in range(50):
+					position = Vector2(lerp(165, 1120, randf()), lerp(125, 560, randf()))
+					if is_spawn_area_clear_2d(position, machinegunColShape):
+						flag2 = true
+						break
+				if flag2:
+					var machinegun = machinegun_scene.instantiate()
+					machinegun.global_position = position
+					add_child(machinegun)
 			reward_spawned = true
 			
 

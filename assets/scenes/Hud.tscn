@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://ctms207l4qfnb"]
+[gd_scene load_steps=9 format=3 uid="uid://ctms207l4qfnb"]
 
 [ext_resource type="Script" uid="uid://bxgb3s45o87fy" path="res://assets/scripts/hud.gd" id="1_1hr42"]
 [ext_resource type="Texture2D" uid="uid://c4ou1qi0tyvh1" path="res://assets/textures/heart.png" id="1_tdpgl"]
 [ext_resource type="Texture2D" uid="uid://cce7rtkos5rq" path="res://assets/textures/room_icon.png" id="3_quwny"]
 [ext_resource type="Texture2D" uid="uid://b2a00wqrpqvdn" path="res://assets/textures/player_icon.png" id="4_3tbtb"]
+[ext_resource type="Texture2D" uid="uid://willkb5besgr" path="res://assets/textures/selected.png" id="5_b3exo"]
+[ext_resource type="Texture2D" uid="uid://d33shdwfct8r3" path="res://assets/textures/pistol.png" id="5_i6l2i"]
+[ext_resource type="Texture2D" uid="uid://d2a8eyt37iw8r" path="res://assets/textures/shotgun.png" id="6_b3exo"]
+[ext_resource type="Texture2D" uid="uid://vemscpiw34px" path="res://assets/textures/machinegun.png" id="7_gu470"]
 
 [node name="Hud" type="Control"]
 layout_mode = 3
@@ -493,6 +497,75 @@ theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 14
 theme_override_font_sizes/font_size = 60
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Selected1" type="Sprite2D" parent="."]
+position = Vector2(64, 166)
+scale = Vector2(0.130192, 0.079691)
+texture = ExtResource("5_b3exo")
+
+[node name="Selected2" type="Sprite2D" parent="."]
+position = Vector2(65, 213)
+scale = Vector2(0.130192, 0.079691)
+texture = ExtResource("5_b3exo")
+
+[node name="Selected3" type="Sprite2D" parent="."]
+position = Vector2(65, 264)
+scale = Vector2(0.130192, 0.079691)
+texture = ExtResource("5_b3exo")
+
+[node name="Pistol" type="Sprite2D" parent="."]
+position = Vector2(65, 166)
+scale = Vector2(3.40909, 3.40909)
+texture = ExtResource("5_i6l2i")
+
+[node name="Shotgun" type="Sprite2D" parent="."]
+position = Vector2(65, 215)
+scale = Vector2(2.40909, 2.40909)
+texture = ExtResource("6_b3exo")
+
+[node name="Machinegun" type="Sprite2D" parent="."]
+position = Vector2(66, 265)
+scale = Vector2(1.11111, 1.11111)
+texture = ExtResource("7_gu470")
+
+[node name="AmmoPistol" type="Label" parent="."]
+offset_left = -40.0
+offset_top = 117.0
+offset_right = 324.0
+offset_bottom = 200.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/font_size = 60
+text = "∞"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AmmoMachineGun" type="Label" parent="."]
+offset_left = -38.0
+offset_top = 220.0
+offset_right = 326.0
+offset_bottom = 303.0
+theme_override_colors/font_color = Color(0.189486, 0.641145, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/font_size = 40
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AmmoShotgun" type="Label" parent="."]
+offset_left = -39.0
+offset_top = 169.0
+offset_right = 325.0
+offset_bottom = 252.0
+theme_override_colors/font_color = Color(0.189486, 0.641145, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/font_size = 40
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1

@@ -22,6 +22,8 @@ func _process(delta: float) -> void:
 	if change_floor and $Black.modulate.a >= 1:
 		Global.points = get_node("Hud").get_node("Points").text
 		Global.player_health = player.health
+		Global.shotgun_bullets = player.shotgun_bullets
+		Global.machinegun_bullets = player.machinegun_bullets
 		get_tree().change_scene_to_file("res://assets/scenes/RoomSpawner.tscn")
 
 func _ready():
