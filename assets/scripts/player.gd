@@ -7,7 +7,7 @@ const SPEED = 15000.0
 
 var bullet_scene: PackedScene = preload("res://assets/scenes/BasicBullet.tscn")
 var health
-var immunity_time = 1.0
+var immunity_time = 0.75
 var immune = false
 var curr_immunity_time = 0
 var weap = 0
