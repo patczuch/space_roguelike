@@ -7,13 +7,20 @@ const SPEED = 10000.0
 
 var health
 var max_health = 20
+var start_delay = 0.5
+var delay
 
 
 func _physics_process(delta: float) -> void:
-	if player:
-		velocity = SPEED * delta * (player.global_position - $CollisionShape2D.global_position).normalized()
-	else:
-		velocity = Vector2(0, 0)
+	if delay > 0:
+		scale = Vector2(scale.x + delta/start_delay, scale.x + delta/start_delay)
+		delay -= delta
+	if delay <= 0:
+		scale = Vector2(1,1)
+		if player:
+			velocity = SPEED * delta * (player.global_position - $CollisionShape2D.global_position).normalized()
+		else:
+			velocity = Vector2(0, 0)
 
 	move_and_slide()
 	
@@ -31,4 +38,6 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 
 
 func _on_ready() -> void:
+	delay = start_delay
 	health = max_health
+	scale = Vector2(0,0)

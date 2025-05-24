@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cte8umoxeevmo"]
+
+[ext_resource type="Texture2D" uid="uid://d2a8eyt37iw8r" path="res://assets/textures/shotgun.png" id="1_axex2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s2adl"]
+size = Vector2(104, 30)
+
+[node name="Shotgun" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_s2adl")
+
+[node name="Shotgun" type="Sprite2D" parent="Area2D"]
+position = Vector2(0, -9.53674e-07)
+scale = Vector2(2.77273, 2.77273)
+texture = ExtResource("1_axex2")

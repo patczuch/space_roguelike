@@ -27,6 +27,7 @@ offset_bottom = 668.0
 text = "Exit"
 
 [node name="RetryButton" type="Button" parent="."]
+layout_mode = 0
 offset_left = 508.0
 offset_top = 308.0
 offset_right = 764.0
@@ -34,6 +35,7 @@ offset_bottom = 378.0
 text = "Retry"
 
 [node name="ExitButton2" type="Button" parent="."]
+layout_mode = 0
 offset_left = 508.0
 offset_top = 385.0
 offset_right = 764.0

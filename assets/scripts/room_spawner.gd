@@ -21,6 +21,7 @@ func _process(delta: float) -> void:
 		$Black.modulate = Color(1, 1, 1, $Black.modulate.a + 0.01)
 	if change_floor and $Black.modulate.a >= 1:
 		Global.points = get_node("Hud").get_node("Points").text
+		Global.player_health = player.health
 		get_tree().change_scene_to_file("res://assets/scenes/RoomSpawner.tscn")
 
 func _ready():
@@ -189,23 +190,41 @@ func generate_floorplan(min_rooms=7, max_rooms=15, WIDTH=10, HEIGHT=10):
 	return grid
 	
 func load_files(folder_path: String) -> Array:
-	var file_contents = []
+	var file_data = []
 	var dir = DirAccess.open(folder_path)
-	
-	if dir:
-		dir.list_dir_begin()
-		var file_name = dir.get_next()
-		while file_name != "":
-			if not dir.current_is_dir():
-				var file_path = folder_path + "/" + file_name
-				var file = FileAccess.open(file_path, FileAccess.READ)
-				if file:
-					var content = file.get_as_text()
-					file_contents.append(content)
-					file.close()
-			file_name = dir.get_next()
-		dir.list_dir_end()
-	else:
-		print("Failed to open directory: %s" % folder_path)
 
-	return file_contents
+	#if dir:
+		#dir.list_dir_begin()
+		#var file_name = dir.get_next()
+		#while file_name != "":
+			#if not dir.current_is_dir():
+				#var name_parts = file_name.get_basename().to_int()
+				#var file_path = folder_path + "/" + file_name
+				#var file = FileAccess.open(file_path, FileAccess.READ)
+				#if file:
+					#var content = file.get_as_text()
+					#file_data.append({"index": name_parts, "content": content})
+					#file.close()
+			#file_name = dir.get_next()
+		#dir.list_dir_end()
+	#else:
+		#print("Failed to open directory: %s" % folder_path)
+		#return []
+	var file_names = ["0.txt", "1.txt", "2.txt", "3.txt", "4.txt", "5.txt", "6.txt", "7.txt", "8.txt", "9.txt", "10.txt", "11.txt", "12.txt", "13.txt", "14.txt", "15.txt", "16.txt", 
+	"17.txt", "18.txt", "19.txt", "20.txt", "21.txt", "22.txt", "23.txt"]	
+	for file_name in file_names:
+		var name_parts = file_name.get_basename().to_int()
+		var file_path = folder_path + "/" + file_name
+		var file = FileAccess.open(file_path, FileAccess.READ)
+		if file:
+			var content = file.get_as_text()
+			file_data.append({"index": name_parts, "content": content})
+			file.close()
+
+	file_data.sort_custom(func(a, b): return a["index"] < b["index"])
+
+	var sorted_contents = []
+	for entry in file_data:
+		sorted_contents.append(entry["content"])
+
+	return sorted_contents

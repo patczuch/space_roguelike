@@ -1,0 +1,17 @@
+Button 450 175
+Button 800 175
+Button 625 575
+Spikes 350 250
+Spikes 450 250
+Spikes 550 250
+Spikes 650 250
+Spikes 750 250
+Spikes 850 250
+Spikes 400 350
+Spikes 500 350
+Spikes 700 350
+Spikes 800 350
+Wall 325 450
+Wall 925 450
+Wall 625 400
+Wall 625 500

@@ -52,4 +52,6 @@ func show_game_over():
 
 
 func _on_retry_button_pressed() -> void:
+	Global.player_health = 5
+	Global.points = "0"
 	get_tree().change_scene_to_file("res://assets/scenes/RoomSpawner.tscn")

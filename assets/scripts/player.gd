@@ -7,7 +7,7 @@ const SPEED = 15000.0
 
 var bullet_scene: PackedScene = preload("res://assets/scenes/BasicBullet.tscn")
 var health
-var immunity_time = 0.5
+var immunity_time = 1.0
 var immune = false
 var curr_immunity_time = 0
 
@@ -25,6 +25,10 @@ func _physics_process(delta: float) -> void:
 			
 		var dir_up_down := Input.get_axis("up", "down")
 		velocity.y = dir_up_down * SPEED * delta
+		
+		if Input.is_action_pressed("run"):
+			velocity.x *= 1.5
+			velocity.y *= 1.5
 			
 			
 		if dir_left_right or dir_up_down:
