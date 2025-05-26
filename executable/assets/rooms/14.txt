@@ -1,0 +1,12 @@
+Octopus 350 150
+Octopus 900 150
+Octopus 350 500
+Octopus 900 500
+Octopus 625 300
+Wall 450 250
+Wall 800 250
+Wall 450 350
+Wall 800 350
+Wall 550 400
+Wall 700 400
+Button 625 500

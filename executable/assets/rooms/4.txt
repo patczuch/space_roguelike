@@ -1,0 +1,8 @@
+Spikes 425 325
+Spikes 525 325
+Spikes 725 325
+Spikes 825 325
+Button 625 325
+Wall 350 250
+Wall 950 250
+Wall 450 450
